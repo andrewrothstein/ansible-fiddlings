@@ -1,0 +1,26 @@
+---
+# Ansible Playbook to create and manage EC2 servers
+
+- name: Provision servers
+  hosts: jumpstation
+  gather_facts: False
+
+  vars:
+    keypair: arothste_aws
+    security_group: ssh-only
+    instance_type: m1.small
+    image: ami-30837058
+    region: us-east-1
+
+  tasks:
+  - name: Provision a set of instances
+    ec2: > 
+      keypair={{ keypair }}
+      group={{ security_group }}
+      instance_type={{ instance_type }}
+      image={{ image }}
+      region={{ region }}
+      tag={{ host_tag }}
+      wait=true
+      count=1
+    register: ec2
