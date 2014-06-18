@@ -11,6 +11,7 @@
     instance_type: m1.small
     image: ami-30837058
     region: us-east-1
+    instance_tags: '{"tag1":"value1"}'
 
   tasks:
   - name: Provision a set of instances
@@ -20,7 +21,7 @@
       instance_type={{ instance_type }}
       image={{ image }}
       region={{ region }}
-      tag={{ host_tag }}
+      instance_tags={{ instance_tags }}
       wait=true
       count=1
     register: ec2
