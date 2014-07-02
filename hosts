@@ -1,0 +1,7 @@
+[zookeeper_nodes]
+host1 zookeeperId=1
+host2 zookeeperId=2
+host3 zookeeperId=3
+
+[elasticsearch_nodes]
+host[1-3]

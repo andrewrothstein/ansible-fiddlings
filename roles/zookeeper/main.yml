@@ -1,0 +1,2 @@
+---
+- hosts: zookeeper_node
